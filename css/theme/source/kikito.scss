@@ -1,0 +1,188 @@
+/**
+ * Kikito theme for reveal.js.
+ *
+ * Copyright (C) 2014 Enrique García - kiki.to
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #111;
+
+$mainFont: 'Arimo', sans-serif;
+$linkColor: #e7ad52;
+$linkColorHover: lighten( $linkColor, 20% );
+$headingFont: 'Montserrat', Impact, sans-serif;
+$headingTextShadow: none;
+$heading1TextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$mainFontSize: 40px;
+
+$mainColor: #333;
+$headingColor: #333;
+$backgroundColor: #f7fbfc;
+$linkColor: #3b759e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+
+$altColor: #ffffea;
+$altLinkColor: lighten($linkColor, 30%);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal{
+
+  .tall {
+    height: 100%;
+  }
+
+  ul, ol {
+    display: block;
+    font-size: 2em;
+  }
+
+  pre {
+    font-size: 0.7em;
+    code {
+      background: white;
+      color: black;
+      padding: 1em;
+      max-width: none;
+      max-height: none;
+    }
+  }
+  h1 {
+    font-size: 3.4em;
+    code {
+      font-size: 0.75em;
+    }
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 0.5em;
+    text-size-adjust: auto;
+  }
+
+  .slides {
+    // border: 1px solid #fefefe;
+  }
+
+  .valign {
+    position: relative;
+
+    a {
+      display: block;
+      height: 100%;
+    }
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .stretch {
+    img {
+      margin: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  section{
+
+    blockquote {
+      padding: 0.5em;
+      p {
+        font-size: 1.5em;
+      }
+    }
+
+    &[data-background] {
+      h1,h2,h3,h4,h5,h6,p {
+        color: $altColor;
+        text-shadow: 1px 1px 1px #666;
+      }
+      a {
+        color: $altLinkColor;
+      }
+
+      blockquote {
+        background-color: rgba(255,255,255,0.7);
+
+        p {
+          color: $mainColor;
+          text-shadow: none;
+        }
+
+        a {
+          color: darken($linkColor, 10%);
+        }
+      }
+    }
+
+    img {
+      border: none;
+
+      &.plain {
+        box-shadow: none;
+      }
+    }
+
+    .subtitle {
+      background-color: rgba(255,255,255,0.5);
+      padding: 1em;
+      margin: 0 1em;
+      border-radius: 0.5em;
+
+      p {
+        text-shadow: none;
+        color: $mainColor;
+      }
+
+      a {
+        color: darken($linkColor, 10%);
+      }
+
+    }
+
+  }
+
+  cite {
+    font-style: normal;
+    font-size: 0.7em;
+  }
+
+  table {
+    width: 100%;
+    font-size: 1.2em;
+    td, th {
+      text-align: center;
+      width: 50%;
+      border-bottom: none;
+    }
+  }
+}
+
