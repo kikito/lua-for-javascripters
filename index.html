@@ -64,8 +64,7 @@ https://kikito.github.io/lua-for-javascripters
 
 ## 1. Intro
 ## 2. Syntax
-## 3. Uses
-## 4. Conclusion
+## 3. Conclusion
 
 ***
 
@@ -98,14 +97,42 @@ https://kikito.github.io/lua-for-javascripters
 
 ## Javascript
 
-### Node: General-purpose language
 ### Browser: Embedded
+### Node: General-purpose language
 
 ***
 
 ## Lua
-### An *Embedded* language
-### Hosts: C/C++ apps and microcontrollers
+### Embedded
+### Hosts: C/C++ apps & microcontrollers
+
+***
+
+<figure class="stretch valign">
+  <img src="./img/nginx-logo.png" width=1000>
+</figure>
+
+***
+
+<figure class="stretch valign">
+  <img src="./img/redis-logo.png" width=1000>
+</figure>
+
+***
+
+<figure class="stretch valign">
+  <img src="./img/corona-sdk-logo.png" width=1000>
+</figure>
+
+***
+
+<figure class="stretch valign">
+  <img src="./img/videogames.png" width=1000>
+</figure>
+
+***
+
+<!-- .slide: data-background="./img/robots.jpg" -->
 
 ***
 
@@ -113,7 +140,10 @@ https://kikito.github.io/lua-for-javascripters
 
 * First version developed in 2 weeks
 * Browser-tied
-* Huge growth and popularity
+
+***
+
+## Backwards-compatibility
 
 ***
 
@@ -125,13 +155,27 @@ https://kikito.github.io/lua-for-javascripters
 
 ## Lua:
 
-* First version worse than first javascript
-* Embedded
-* Static hosts - easier evolution
+* First version worse than first javascript version
+* No Backwards-compatibility expectations
 
 ***
 
-## Lua Forks
+## Javascript Implementations
+
+* Google V8
+* SpiderMonkey
+* ...
+
+***
+
+## ECMAScript versions
+
+* ECS5
+* ECS6
+
+***
+
+## Lua Implementations
 
 ![lua](./img/lua.png)
 ![luajit](./img/luajit.png)
@@ -147,25 +191,6 @@ https://kikito.github.io/lua-for-javascripters
 
 ***
 
-## Javascript
-``` no-highlight
-1107 unique files
-.cpp 432804 loc
-.h   147794 loc
-```
-
-## LuaJIT
-``` no-highlight
-190 unique files
-.c    42985 loc
-.h    16702 loc
-```
-
-***
-
-## C99
-
-***
 
 <!-- .slide: data-background="./img/fixme.jpg" -->
 
@@ -256,7 +281,7 @@ print(type(a)) -- 'table'
 * Arrays
 * Structs
 * Objects
-* Map
+* Maps & Sets
 * ...
 
 ***
@@ -266,22 +291,33 @@ print(type(a)) -- 'table'
 * Arrays
 * Structs
 * Objects
-* Map ⇐
+* Maps & Sets ⇐
 * ...
 
 ***
 
 ```lua
 -- lua
-local peter = {name: 'peter'}
+local peter = {name = 'peter'}
 local t = {}
-t[peter] = true -- not t['peter']
+t[peter] = true
 
-if u[peter] then
-  print('u works as a hash')
+if t[peter] then
+  print('u works as set')
 end
 ```
 
+***
+```javascript
+-- ECS6
+let peter = {name: 'peter'};
+let s = new Set();
+s.add(peter);
+
+if(s.has(peter)){
+  console.log('s is a set');
+}
+```
 ***
 
 ```javascript
@@ -327,14 +363,70 @@ end
 
 ***
 
+```lua
+local decompose = function(tweet)
+  return tweet.author, tweet.text
+end
+
+local author, text = decompose(t)
+```
+
+***
+```javascript
+// ECS6
+let decompose = function(tweet) {
+  return [tweet.author, tweet.text];
+};
+
+let [author, text] = decompose(tweet);
+```
+
+***
+
 ## Lua functions:
 
-* Values
-* Blocks
-* Scopes
-* Iterators
-* Generators
-* ...
+|     |     |
+|-----|-----|
+| Values | Blocks |
+| Closures | Iterators |
+| Generators |  |
+
+***
+
+fixme Lua Goroutine
+
+***
+
+fixme Javascript generator (declared with function*)
+
+***
+
+fixme learn lua in 15 minutes
+
+***
+
+<!-- .slide: data-background="./img/fixme.jpg" -->
+
+## Conclusion
+
+***
+
+## V8 Javascript Engine
+``` no-highlight
+1107 unique files
+.cpp 432804 loc
+.h   147794 loc
+```
+
+## LuaJIT
+``` no-highlight
+190 unique files
+.c    42985 loc
+.h    16702 loc
+```
+
+***
+
 
 ***
 
