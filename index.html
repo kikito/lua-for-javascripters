@@ -47,8 +47,8 @@
 
 <!-- .slide: data-background="./img/front-bg.png" -->
 # Lua
-## for
-# `{Javascripters};`
+### for
+## `{Javascripters};`
 
 <div class="subtitle">
 <p>[Enrique García](http://kiki.to) ([@otikik](http://twitter.com/otikik)). CartoDB - Jul '15</p>
@@ -68,7 +68,7 @@ https://kikito.github.io/lua-for-javascripters
 
 ***
 
-<!-- .slide: data-background="./img/fixme.jpg" -->
+<!-- .slide: data-background="./img/yoga.jpg" -->
 
 # 1.
 # Intro
@@ -173,6 +173,8 @@ https://kikito.github.io/lua-for-javascripters
 * ECS5
 * ECS6
 
+http://kangax.github.io/compat-table/
+
 ***
 
 ## Lua Implementations
@@ -192,10 +194,14 @@ https://kikito.github.io/lua-for-javascripters
 ***
 
 
-<!-- .slide: data-background="./img/fixme.jpg" -->
+<!-- .slide: data-background="./img/hands.jpg" -->
 
 # 2.
 # Syntax
+
+***
+
+## Literals
 
 ***
 
@@ -248,6 +254,32 @@ Lua comments:
 
 ***
 
+## Truthyness
+
+***
+
+### Javascript:
+
+* `false`
+* `0` (zero)
+* `""` (empty string)
+* `null`
+* `undefined`
+* `NaN`
+
+***
+
+### Lua:
+
+* `false`
+* `nil`
+
+***
+
+## Data structures
+
+***
+
 ```javascript
 // javascript
 var o = {a: 1, b: 2};
@@ -274,6 +306,14 @@ print(a[1]) -- 1
 print(type(a)) -- 'table'
 ```
 
+***
+```lua
+-- lua
+local a = {'a', 'b', 'c', 'd'}
+for i=1, #a do
+  print(a[i])
+end
+```
 ***
 
 ## Lua tables:
@@ -303,13 +343,13 @@ local t = {}
 t[peter] = true
 
 if t[peter] then
-  print('u works as set')
+  print('t works like a set')
 end
 ```
 
 ***
 ```javascript
--- ECS6
+// ECS6
 let peter = {name: 'peter'};
 let s = new Set();
 s.add(peter);
@@ -318,6 +358,10 @@ if(s.has(peter)){
   console.log('s is a set');
 }
 ```
+***
+
+## Functions
+
 ***
 
 ```javascript
@@ -364,11 +408,22 @@ end
 ***
 
 ```lua
+-- lua
 local decompose = function(tweet)
   return tweet.author, tweet.text
 end
 
 local author, text = decompose(t)
+```
+
+***
+
+```lua
+-- lua
+local a = 1
+local b = 2
+
+a,b = b,a
 ```
 
 ***
@@ -382,32 +437,78 @@ let [author, text] = decompose(tweet);
 ```
 
 ***
+```javascript
+// ECS6
+let a = 1
+let b = 2
+[a,b] = [b,a]
+```
+***
 
-## Lua functions:
+```javascript
+// ECS6
+let tweet = {author: 'peter', text: 'hello'};
 
-|     |     |
-|-----|-----|
-| Values | Blocks |
-| Closures | Iterators |
-| Generators |  |
+let {author: a, text: t} = tweet;
+
+console.log(a); // peter
+console.log(t); // hello
+```
 
 ***
 
-fixme Lua Goroutine
+```lua
+-- lua
+local tweet = {author = 'peter', text = 'hello'}
+
+local a,t = tweet.author, tweet.text
+
+print(a) -- peter
+print(t) -- hello
+```
 
 ***
 
-fixme Javascript generator (declared with function*)
+## Learn Lua in 15 minutes
+
+#### http://tylerneylon.com/a/learn-lua/
+
+| | |
+|-|-|
+|nil|metatables|
+|class-like|inheritance|
+|modules|
+***
+
+<!-- .slide: data-background="./img/amish.jpg" -->
+
+# 3. Conclusion
 
 ***
 
-fixme learn lua in 15 minutes
+<figure class="stretch valign">
+  <img src="./img/equality.png" height=1000>
+</figure>
 
 ***
 
-<!-- .slide: data-background="./img/fixme.jpg" -->
+<figure class="stretch valign">
+  <img src="./img/equality2.png" height=1000>
+</figure>
 
-## Conclusion
+***
+
+> You can not remove the bad parts
+
+***
+
+> You can not remove the outdated parts
+
+***
+
+## C++
+
+#### http://blog.codinghorror.com/falling-into-the-pit-of-success/
 
 ***
 
@@ -427,16 +528,14 @@ fixme learn lua in 15 minutes
 
 ***
 
+> LuaJIT **interpreter** (!) beats V8's JIT **compiler** in 6 benchmarks out of 8.
 
-***
-
-<figure class="stretch valign">
-  <img src="./img/beware.jpg" width=1000>
-</figure>
-
-***
+http://lua-users.org/lists/lua-l/2010-03/msg00305.html
 
           </script>
+        </section>
+        <section>
+          <iframe width="420" height="315" class='stretch' src="https://www.youtube.com/embed/-jvLY5pUwic" frameborder="0" allowfullscreen></iframe>
         </section>
 
       </div>
