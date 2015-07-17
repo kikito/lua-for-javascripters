@@ -310,7 +310,9 @@ print(type(a)) -- 'table'
 ```lua
 -- lua
 local a = {'a', 'b', 'c', 'd'}
-for i=1, #a do
+local len = #a
+
+for i=1, len do
   print(a[i])
 end
 ```
